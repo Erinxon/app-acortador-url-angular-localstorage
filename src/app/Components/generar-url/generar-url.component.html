@@ -1,0 +1,39 @@
+<div class="alert alert-dismissible alert-warning" *ngIf="errores.isError">
+    <h4 class="alert-heading">Ocurrio un error!</h4>
+    <p class="mb-0">{{errores.textError}}</p>
+  </div>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="row" [formGroup]="urlForm">
+                <div class="col-lg-9">
+                    <input type="email" class="form-control" placeholder="Ingrese la url"
+                    formControlName="url">
+                </div>
+                <div class="col-lg-3">
+                    <button class="btn btn-primary" type="button"
+                    [disabled]="!urlForm.valid"
+                    (click)="onSubmit()">Generar</button>
+                </div>
+                <div class="col-lg-12 mt-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" formControlName="IsGuardar" id="flexCheckChecked" checked="">
+                        <label class="form-check-label" for="flexCheckChecked" >
+                          Guardar Url
+                        </label>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-loanding *ngIf="isLoanding"></app-loanding>
+    <div class="card mt-3" *ngIf="mostrarUrl.mostrar && !isLoanding">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <textarea class="form-control"rows="3">{{mostrarUrl.url}}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

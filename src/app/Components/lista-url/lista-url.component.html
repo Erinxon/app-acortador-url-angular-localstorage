@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Url</th>
+                <th scope="col">Url acortada</th>
+                <th scope="col">Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="listaUrl.length === 0">
+                <td colspan="3" class="text-center">No hay url guardadas</td>
+            </tr>
+            <tr *ngFor="let url of listaUrl; index as i;">
+                <td>{{url.long_url}}</td>
+                <td>{{url.Shorturl}}</td>
+                <td>
+                    <svg (click)="eliminarUrlLocalStorage(i)" class="w-6 h-6 iconoEliminar" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                        </path>
+                    </svg>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
